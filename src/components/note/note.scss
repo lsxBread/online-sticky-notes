@@ -7,8 +7,8 @@
 
 /* Note styles */
 .note-wrap {
-	width: 200px;
-	min-height: 150px;
+	width: 180px;
+	min-height: 200px;
 	padding: 15px; 
 	margin: 0 22px 44px 22px;
 	position: relative;
@@ -20,11 +20,18 @@
 	line-height: 34px; 
 	text-align: center;
 	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-	&:before  {
+	transition: all 0.5s linear;
+	&:hover {
+		.note-delete {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+	.note-sticky  {
 		display: block;
 		content: ""; 
 		background: rgba(227, 200, 114, 0.40);
-		width: 130px;
+		width: 90px;
 		height: 28px;
 	  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 	  border-radius: 6px/18px 0;
@@ -41,5 +48,24 @@
 		bottom: 0;
 		right: 5px;
 		font-size: 12px;
-	}
+	};
+	.note-delete {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		visibility: hidden;
+  	opacity: 0;
+		size: 10px;
+		transition: all 0.3s linear;
+		color:#585858;
+		border-color: #585858;
+	};
+	.note-edit {
+		position: absolute;
+		bottom: 5px;
+		left: 5px;
+		size: 10px;
+		color:#585858;
+		border-color: #585858;
+	};
 }

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^3.2.3",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.2",
     "react": "^16.2.0",
@@ -10,19 +11,26 @@
     "react-draggable": "^3.0.5",
     "react-grid-layout": "^0.16.5",
     "react-masonry-component": "^6.0.2",
-    "react-scripts": "1.1.1"
+    "react-redux": "^5.0.7",
+    "react-scripts": "1.1.1",
+    "react-thunk": "^1.0.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "start-js": "react-scripts start",
+    "start-js": "react-app-rewired start",
     "start": "npm-run-all -p watch-css start-js",
-    "build-js": "react-scripts build",
+    "build-js": "react-app-rewired build",
     "build": "npm-run-all build-css build-js",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "node-sass": "^4.7.2"
+    "autoresponsive-react": "^1.1.30",
+    "babel-plugin-import": "^1.6.5",
+    "node-sass": "^4.7.2",
+    "react-app-rewired": "^1.4.1"
   }
 }

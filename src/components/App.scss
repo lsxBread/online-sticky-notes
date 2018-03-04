@@ -6,23 +6,33 @@
   background-color: #fff;
   header.website-header {
     width: 100%;
-    border: 1px solid red;
+    background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+    background-repeat: repeat-x;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
+    position: fixed;
+    top: 0;
+    z-index: 1;
     .header-title {
       margin-left: 20px;
-
+      color: #999;
+      font-size: 30px;
+      font-family: 'Pacifico', cursive;;
     };
     .operation {
       margin-right: 20px;
     }
   };
   .webiste-display {
+    margin-top: 52px;
+    padding-left: 40px;
     width: 100%;
     height: 100%;
     overflow: scroll;
-    border: 1px solid blue;
+    background-image: url('../assets/images/background.jpg');
+    background-position: center;
+    background-size:cover;
   }
 }
