@@ -3,12 +3,27 @@ import './note.css'
 
 class Note extends React.Component {
 
+  constructor() {
+    super()
+    this.state = {
+      content: ''
+    }
+  }
+
   render() {
     return (
-      <div class="wrapper">
-        <aside class="note-wrap note-yellow">
-          <textarea style={{overflowY:'visible'}}></textarea>
-          <a href="http://youtu.be/vFYaFT0q6Uw">The Mighty Boosh</a>
+      <div className="wrapper" data-grid={JSON.stringify(this.props.dataGrid)}>
+        <aside 
+          className="note-wrap"
+          style={
+            {
+              background:this.props.note.color,
+              transform: `rotate(${this.props.note.rotate}deg)`
+            }
+          }
+        >
+          <div className='note-content' contentEditable="true"></div>
+          <div className='note-time'>{new Date(this.props.note.time).toLocaleString()}</div>
         </aside>
       </div>
     )

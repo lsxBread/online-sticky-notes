@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 
 .wrapper {
-	margin: 20px auto 0 auto; 
+	margin: 20px auto 0 auto;
+	display: inline-block;
 }
 
 /* Note styles */
 .note-wrap {
 	width: 200px;
-	min-height: 200px;
+	min-height: 150px;
 	padding: 15px; 
 	margin: 0 22px 44px 22px;
 	position: relative;
@@ -16,7 +17,6 @@
   display: inline-block;
 	font-family: 'Pacifico', cursive;;
 	color:#4b453c;
-	background: #F7E999;
 	line-height: 34px; 
 	text-align: center;
 	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
@@ -30,49 +30,16 @@
 	  border-radius: 6px/18px 0;
 		position: absolute;
 		top: -13px;
-		left: 60px;
+		left: 50px;
 		transform: rotate(-2deg);
+	};
+	.note-content {
+		outline: none;
+	};
+	.note-time {
+		position: absolute;
+		bottom: 0;
+		right: 5px;
+		font-size: 12px;
 	}
-	& a {
-		color:#6b824f;
-		text-decoration: none;
-		font-size: 20px; 
-		transition: all 0.4s ease;
-		&:hover {
-			color:#D83A25;
-		}
-	}
-}
-
-.note-yellow {
-	background: #F7E999;
-	-webkit-transform: rotate(2deg);
-	-moz-transform: rotate(2deg);
-	-o-transform: rotate(2deg);
-	-ms-transform: rotate(2deg);
-	transform: rotate(2deg);
-}
-.note-blue {
-	background: #b9dcf4;
-	-webkit-transform: rotate(-2deg);
-	-moz-transform: rotate(-2deg);
-	-o-transform: rotate(-2deg);
-	-ms-transform: rotate(-2deg);
-	transform: rotate(-2deg);
-}
-.note-pink {
-	background: #FFBDA3;
-	-webkit-transform: rotate(1deg);
-	-moz-transform: rotate(1deg);
-	-o-transform: rotate(1deg);
-	-ms-transform: rotate(1deg);
-	transform: rotate(1deg);
-}
-.note-green {
-	background: #CAF4B9;
-	-webkit-transform: rotate(-1deg);
-	-moz-transform: rotate(-1deg);
-	-o-transform: rotate(-1deg);
-	-ms-transform: rotate(-1deg);
-	transform: rotate(-1deg);
 }
