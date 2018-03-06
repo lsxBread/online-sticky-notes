@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu, Icon, Tabs, message, Form, Input, Button, Checkbox, Modal } from 'antd';
+import { Icon, Tabs, Form, Input, Modal } from 'antd';
 const TabPane = Tabs.TabPane;
 const FormItem = Form.Item;
 
@@ -24,7 +24,6 @@ class Auth extends React.Component {
     this.props.form.validateFields(fieldName, (err, values) => {
       if (!err) {
         if (fieldName.length === 2) {
-          console.log('Received values of form: ', values)
           this.props.triggerLogin(values)
         } else {
           this.props.triggerRegister(values)

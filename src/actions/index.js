@@ -18,7 +18,6 @@ export const addNote = (username) => {
       color: colorList[index],
       rotate: rotate[index],
     })
-  console.log(newNote)
   
   return {
     type: Options.ADD_NOTE,

@@ -1,8 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import axios from 'axios'
-import cookies from 'browser-cookies'
-import { Button, Popconfirm, message, notification, Avatar } from 'antd';
+import { Button, Popconfirm, message, Avatar } from 'antd';
 
 import { addNote, removeAll, showAuthModal, checkUserAuth, triggerLogout } from '../actions/index'
 import VisibleAuthModal from '../containers/VisibleAuthModal'

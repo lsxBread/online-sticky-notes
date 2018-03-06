@@ -1,5 +1,5 @@
 import React from 'react'
-import Note from '../note/Node'
+import Note from '../note/Node.js'
 import Masonry from 'react-masonry-component';
 
 const NoteList = ({ notes, user, onContentChange, deleteNote, changeColor }) => {

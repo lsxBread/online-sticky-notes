@@ -1,5 +1,4 @@
 import * as Options from '../../utils/actionType'
-import localStorage from '../../utils/storage'
 
 const initState = {
   msg: '',
@@ -16,7 +15,6 @@ const user = (state = initState, action) => {
     case Options.CLOSE_AUTH_MODAL:
       return {...state, isAuthModalShown: false}
     case Options.AUTH_SUCCESS:
-      console.log(action.payload)
       return {
         ...state,
         msg: action.payload.msg,
