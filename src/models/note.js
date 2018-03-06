@@ -1,21 +1,21 @@
 export class Note {
-  constructor(id, content, time, color, rotate, deltaXY) {
+  constructor(creator, id, content, time, color, rotate) {
+    this.creator = creator
     this.id = id
     this.content = content
     this.time = time
     this.color = color
     this.rotate = rotate
-    this.deltaXY = deltaXY
   }
 }
 
-export const createNote = ({id, content, color, rotate, deltaXY={x:0, y:0}}) => {
+export const createNote = ({ creator, id, content, color, rotate }) => {
   return new Note(
+    creator,
     id,
     content,
     new Date().getTime(),
     color,
     rotate,
-    deltaXY
   )
 }

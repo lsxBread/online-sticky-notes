@@ -35,26 +35,31 @@
     left: 50px;
     transform: rotate(-2deg); }
   .note-wrap .note-content {
-    outline: none; }
+    outline: none;
+    font-family: 'Pacifico', cursive;
+    background: transparent;
+    border: none; }
   .note-wrap .note-time {
     position: absolute;
     bottom: 0;
     right: 5px;
-    font-size: 12px; }
+    font-size: 12px;
+    line-height: 20px; }
   .note-wrap .note-delete {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 0px;
+    right: 0px;
     visibility: hidden;
     opacity: 0;
-    size: 10px;
+    font-size: 15px;
+    border: none;
     transition: all 0.3s linear;
     color: #585858;
     border-color: #585858; }
   .note-wrap .note-edit {
     position: absolute;
-    bottom: 5px;
-    left: 5px;
+    bottom: 2px;
+    left: 2px;
     size: 10px;
     color: #585858;
     border-color: #585858; }

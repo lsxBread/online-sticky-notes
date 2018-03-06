@@ -15,7 +15,7 @@
 	font-size: 16px;
 	vertical-align: top;
   display: inline-block;
-	font-family: 'Pacifico', cursive;;
+	font-family: 'Pacifico', cursive;
 	color:#4b453c;
 	line-height: 34px; 
 	text-align: center;
@@ -42,28 +42,33 @@
 	};
 	.note-content {
 		outline: none;
+		font-family: 'Pacifico', cursive;
+		background: transparent;
+		border: none;
 	};
 	.note-time {
 		position: absolute;
 		bottom: 0;
 		right: 5px;
 		font-size: 12px;
+		line-height: 20px;
 	};
 	.note-delete {
 		position: absolute;
-		top: 5px;
-		right: 5px;
+		top: 0px;
+		right: 0px;
 		visibility: hidden;
   	opacity: 0;
-		size: 10px;
+		font-size: 15px;
+		border: none;
 		transition: all 0.3s linear;
 		color:#585858;
 		border-color: #585858;
 	};
 	.note-edit {
 		position: absolute;
-		bottom: 5px;
-		left: 5px;
+		bottom: 2px;
+		left: 2px;
 		size: 10px;
 		color:#585858;
 		border-color: #585858;

@@ -2,7 +2,7 @@ import React from 'react'
 import Note from '../note/Node'
 import Masonry from 'react-masonry-component';
 
-const NoteList = ({ notes, onContentChange, deleteNote, changeColor }) => {
+const NoteList = ({ notes, user, onContentChange, deleteNote, changeColor }) => {
   return (
      <Masonry
           className={'my-gallery-class'} // default ''
@@ -12,7 +12,7 @@ const NoteList = ({ notes, onContentChange, deleteNote, changeColor }) => {
           updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
         >
         {
-          notes.map(note => (
+          notes.filter(note=>note.creator === user.username).map(note => (
             <Note 
               key={note.id}
               note={note}

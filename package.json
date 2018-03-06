@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "antd": "^3.2.3",
+    "axios": "^0.18.0",
+    "browser-cookies": "^1.2.0",
+    "draft-js": "^0.10.5",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.2",
     "react": "^16.2.0",
@@ -15,7 +18,8 @@
     "react-scripts": "1.1.1",
     "react-thunk": "^1.0.0",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "uuid": "^3.2.1"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",

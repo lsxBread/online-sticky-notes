@@ -1,10 +1,11 @@
 import { connect } from 'react-redux'
-import {changeContent, deleteNote, changeColor} from '../actions/index'
+import { changeContent, deleteNote, changeColor } from '../actions/index'
 import NoteList from '../components/note-list/NoteList'
 
 const mapStateToProps = state => {
   return {
-    notes: state.note.notes
+    notes: state.note.notes,
+    user: state.user
   }
 }
 

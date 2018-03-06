@@ -1,28 +1,49 @@
 import * as Options from '../../utils/actionType'
+import localStorage from '../../utils/storage'
 
 const initState = {
-  notes: [],
+  notes: localStorage.getNotes()
 }
-let objIndex = 0
 
 const note = (state = initState, action) => {
   switch (action.type) {
     case Options.ADD_NOTE:
+      let newNotes = [...state.notes, action.payload.newNote]
+      localStorage.setNotes(newNotes)
       return {
         ...state,
-        notes: [...state.notes, action.payload.newNote]
+        notes: newNotes
       }
     case Options.UPDATE_CONTENT:
-      objIndex = state.notes.findIndex((obj => obj.id === action.payload.id));
-      state.notes[objIndex].content = action.payload.content
-      return { ...state, notes: [...state.notes] }
+      let newNotesWithContent = state.notes.map(obj => {
+        if (obj.id === action.payload.id) {
+            return {...obj, content: action.payload.content}
+        }
+        return obj
+      })
+      localStorage.setNotes(newNotesWithContent)
+      return { ...state, notes: newNotesWithContent }
     case Options.UPDATE_COLOR:
-      objIndex = state.notes.findIndex((obj => obj.id === action.payload.id));
-      state.notes[objIndex].color = action.payload.color
-      return { ...state, notes: [...state.notes] }
+      let newNotesWithColor = state.notes.map(obj => {
+        if (obj.id === action.payload.id) {
+          return {...obj, color: action.payload.color}
+        }
+        return obj
+      })
+      localStorage.setNotes(newNotesWithColor)
+      return { ...state, notes: newNotesWithColor }
     case Options.REMOVE_NOTE:
-      state.notes.splice(state.notes.findIndex((obj => obj.id === action.payload.id)), 1)
-      return { ...state, notes: [...state.notes] }
+      let remainedNotes = state.notes.filter(note => note.id !== action.payload.id)
+      localStorage.setNotes(remainedNotes)
+      return { ...state, notes: remainedNotes }
+    case Options.REMOVE_ALL:
+      localStorage.setNotes(
+        localStorage.getNotes().filter(note=>note.creator!==action.payload.username)
+      )
+      return {
+        ...state,
+        notes: localStorage.getNotes()
+      }
     default:
       return state
   }

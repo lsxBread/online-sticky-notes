@@ -1,9 +1,10 @@
 import React from 'react'
-import { Button, Popconfirm, message, Popover, Icon, Radio } from 'antd'
+import {Input, Button, Popconfirm, message, Popover, Icon, Radio } from 'antd'
 import './note.css'
 
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
+const { TextArea } = Input
 
 class Note extends React.Component {
 
@@ -15,8 +16,7 @@ class Note extends React.Component {
   }
 
   handleChange(e) {
-    let content = e.target.innerText
-    this.props.changeContent(this.props.note.id, content)
+    this.props.changeContent(this.props.note.id, e.target.value)
   }
 
   confirm(e) {
@@ -29,7 +29,7 @@ class Note extends React.Component {
   }
 
   render() {
-    let { time, color, rotate } = this.props.note
+    let {content, time, color, rotate } = this.props.note
     return (
       <div className="wrapper">
         <aside
@@ -42,12 +42,13 @@ class Note extends React.Component {
           }
         >
           <div className='note-sticky'></div>
-          <div
+          <TextArea 
             className='note-content'
-            contentEditable="true"
-            onKeyUp={(e) => this.handleChange(e)}
-          >
-          </div>
+            placeholder="Add Note..."
+            autosize
+            onChange={(e) => this.handleChange(e)}
+            value={content}
+          />
           <Popconfirm
             title="Are you sure delete this note?"
             onConfirm={this.confirm}
