@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - "6.11.5"
+
+branches:
+  only:
+    - master
+    - develop
+
+before_script:
+  - npm install -g firebase-tools
+  - npm install -g create-react-app
+
+script:
+  - npm run build
+
+after_success:
+  - firebase deploy --token $FIREBASE_TOKEN
+
+notifications:
+  email:
+    on_failure: change
+    on_success: change
