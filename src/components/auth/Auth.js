@@ -76,7 +76,7 @@ class Auth extends React.Component {
                 })(<Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder='Enter username...' />)}
               </FormItem>
               <FormItem label='Password'>
-                {getFieldDecorator('password', { rules: [{ required: true, message: 'Please input your password!' }] })(<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder='Enter password...' />)}
+                {getFieldDecorator('password', { rules: [{ required: true, message: 'Please input your password!' }] })(<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder='Enter password...' type='password' />)}
               </FormItem>
             </Form>
           </TabPane>
@@ -89,7 +89,7 @@ class Auth extends React.Component {
                 })(<Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder='Enter username...' />)}
               </FormItem>
               <FormItem label='Password'>
-                {getFieldDecorator('r_password', { rules: [{ required: true, message: 'Please input your password!' }] })(<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder='Enter password...' />)}
+                {getFieldDecorator('r_password', { rules: [{ required: true, message: 'Please input your password!' }] })(<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder='Enter password...' type='password' />)}
               </FormItem>
               <FormItem label='Password Again'>
                 {getFieldDecorator('r_confirmPassword', {
@@ -97,7 +97,7 @@ class Auth extends React.Component {
                     { required: true, message: 'Please verify your password!' },
                     { validator: this.checkPassword }
                   ]
-                })(<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder='Verify password' />)}
+                })(<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder='Verify password' type='password' />)}
               </FormItem>
             </Form>
           </TabPane>

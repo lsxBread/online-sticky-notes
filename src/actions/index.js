@@ -7,6 +7,7 @@ import * as NoteModel from '../models/note'
 import uuidv1 from 'uuid/v1'
 const colorList = ['#F7E999', '#b9dcf4', '#FFBDA3', '#CAF4B9']
 const rotate = [-1, 1, -2, 2]
+const URL = 'http://localhost:9093'
 
 export const addNote = (username) => {
   let index = Math.floor(Math.random() * 4)
@@ -94,7 +95,7 @@ export const errorMsg = (msg) => {
 export const triggerLogin = ({username, password}) => {
   return dispatch => {
     axios.post(
-      'https://my-note-server.herokuapp.com/user/login',
+      `${URL}/user/login`,
       {username, password},
       {withCredentials: true}).then(res => {
         if ((res.status === 200 || res.status === 304) && res.data.code === 0) {
@@ -110,12 +111,12 @@ export const triggerLogin = ({username, password}) => {
 export const triggerRegister = ({r_username, r_password}) => {
   return dispatch => {
     axios.post(
-      'https://my-note-server.herokuapp.com/user/register',
+      `${URL}/user/register`,
       {r_username, r_password},
       {withCredentials: true}
     ).then(res=>{
       if ((res.status === 200 || res.status === 304) && res.data.code === 0) {
-        dispatch(authSuccess(res.data.data, res.data.msg))
+        dispatch(triggerLogin(res.data.data.username, res.data.data.password))
       } else {
         message.warning(res.data.msg);
       }
@@ -126,7 +127,7 @@ export const triggerRegister = ({r_username, r_password}) => {
 export const triggerLogout = () => {
   return dispatch => {
     axios.get(
-      'https://my-note-server.herokuapp.com/user/logout', {withCredentials: true}
+      `${URL}/user/logout`, {withCredentials: true}
     ).then(res => {
       if((res.status === 200 || res.status === 304) && res.data.code === 0) {
         dispatch(authLogout())
@@ -137,7 +138,7 @@ export const triggerLogout = () => {
 
 export const checkUserAuth = () => {
   return dispatch => {
-    axios.get('https://my-note-server.herokuapp.com/user/info', {withCredentials: true})
+    axios.get( `${URL}/user/auth`, {withCredentials: true})
     .then(res => {
         if((res.status === 200 || res.status === 304) && res.data.code === 0) {
           dispatch(authSuccess(res.data.data, res.data.msg))
