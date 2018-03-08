@@ -7,7 +7,7 @@ import * as NoteModel from '../models/note'
 import uuidv1 from 'uuid/v1'
 const colorList = ['#F7E999', '#b9dcf4', '#FFBDA3', '#CAF4B9']
 const rotate = [-1, 1, -2, 2]
-const URL = 'http://localhost:9093'
+const URL = 'https://my-note-server.herokuapp.com'
 
 export const addNote = (username) => {
   let index = Math.floor(Math.random() * 4)
