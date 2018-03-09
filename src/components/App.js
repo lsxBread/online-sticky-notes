@@ -82,11 +82,14 @@ class App extends React.Component {
                 cancelText="No"
                 placement="bottomRight"
               >
-                <Avatar
-                  style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
-                >
-                  {this.props.user.username.charAt(0).toUpperCase()}
-                </Avatar>
+                {this.props.user.avatar
+                  ? <Avatar src={this.props.user.avatar} />
+                  : <Avatar
+                    style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
+                    >
+                      {this.props.user.username.charAt(0).toUpperCase()}
+                    </Avatar>
+                }
               </Popconfirm>
               :
               <Button

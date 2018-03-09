@@ -66,6 +66,13 @@ export const closeAuthModal = () => {
   }
 }
 
+export const registerSuccess = () => {
+  message.success('Register Success');
+  return {
+    type: Options.REGISTER_SUCCESS
+  }
+}
+
 export const authSuccess = (data, msg) => {
   notification.open({
     message: 'Login Successfully!',
@@ -91,7 +98,6 @@ export const errorMsg = (msg) => {
   }
 }
 
-
 export const triggerLogin = ({username, password}) => {
   return dispatch => {
     axios.post(
@@ -116,7 +122,7 @@ export const triggerRegister = ({r_username, r_password}) => {
       {withCredentials: true}
     ).then(res=>{
       if ((res.status === 200 || res.status === 304) && res.data.code === 0) {
-        dispatch(triggerLogin(res.data.data.username, res.data.data.password))
+        dispatch(registerSuccess())
       } else {
         message.warning(res.data.msg);
       }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon, Tabs, Form, Input, Modal } from 'antd';
+import { Icon, Tabs, Form, Input, Modal, Button } from 'antd';
 const TabPane = Tabs.TabPane;
 const FormItem = Form.Item;
 
@@ -14,6 +14,11 @@ class Auth extends React.Component {
     this.handleOk = this.handleOk.bind(this)
     this.changeTab = this.changeTab.bind(this)
     this.checkPassword = this.checkPassword.bind(this);
+    this.handleGithubLogin = this.handleGithubLogin.bind(this)
+  }
+
+  handleGithubLogin() {
+    window.location.href = 'https://my-note-server.herokuapp.com/user/github'
   }
 
   handleOk() {
@@ -79,6 +84,7 @@ class Auth extends React.Component {
                 {getFieldDecorator('password', { rules: [{ required: true, message: 'Please input your password!' }] })(<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder='Enter password...' type='password' />)}
               </FormItem>
             </Form>
+            <Button type='primary' onClick={this.handleGithubLogin}>github login</Button>
           </TabPane>
 
           <TabPane tab='Register' key='2'>
