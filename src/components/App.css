@@ -58,3 +58,10 @@
     color: #999;
     text-align: center;
     font-size: 10px; }
+    .App footer.website-footer div.github {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%); }
+      .App footer.website-footer div.github iframe {
+        margin-right: 10px; }

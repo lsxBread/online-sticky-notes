@@ -86,9 +86,9 @@ class App extends React.Component {
                   ? <Avatar src={this.props.user.avatar} />
                   : <Avatar
                     style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
-                    >
-                      {this.props.user.username.charAt(0).toUpperCase()}
-                    </Avatar>
+                  >
+                    {this.props.user.username.charAt(0).toUpperCase()}
+                  </Avatar>
                 }
               </Popconfirm>
               :
@@ -107,9 +107,13 @@ class App extends React.Component {
           <VisibleNotes />
         </main>
         <footer className="website-footer">
-          <p>&copy; {new Date().getFullYear()} Shixun Liu</p>
+          <div>&copy; {new Date().getFullYear()} Shixun Liu</div>
           <br />
-          <p>Powered by shixun.liu1023@gmail.com</p>
+          <div>Powered by shixun.liu1023@gmail.com</div>
+          <div className='github'>
+            <a className="github-button" href="https://github.com/lsxBread/online-sticky-notes" aria-label="Star lsxBread/online-sticky-notes on GitHub">Star</a>
+            <a className="github-button" href="https://github.com/lsxBread/online-sticky-notes/fork" aria-label="Fork lsxBread/online-sticky-notes on GitHub">Fork</a>
+          </div>
         </footer>
         <VisibleAuthModal />
       </div>

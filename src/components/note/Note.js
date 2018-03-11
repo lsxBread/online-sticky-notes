@@ -27,7 +27,6 @@ class Note extends React.Component {
         return true;
       }
     }
-
     return false;
   }
 
@@ -45,7 +44,6 @@ class Note extends React.Component {
   }
 
   render() {
-    console.log('note render+++++++++++++++++')
     let {content, time, color, rotate } = this.props.note
     return (
       <div className="wrapper">
