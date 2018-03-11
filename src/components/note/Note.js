@@ -1,4 +1,5 @@
 import React from 'react'
+import { is } from 'immutable';
 import {Input, Button, Popconfirm, message, Popover, Icon, Radio } from 'antd'
 import './note.css'
 
@@ -15,6 +16,21 @@ class Note extends React.Component {
     this.changeColor = this.changeColor.bind(this)
   }
 
+  shouldComponentUpdate (nextProps = {}, nextState = {}) {
+    const thisProps = this.props || {}
+    if (Object.keys(thisProps).length !== Object.keys(nextProps).length) {
+      return true;
+    }
+  
+    for (const key in nextProps) {
+      if (!is(thisProps[key], nextProps[key])) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   handleChange(e) {
     this.props.changeContent(this.props.note.id, e.target.value)
   }
@@ -29,6 +45,7 @@ class Note extends React.Component {
   }
 
   render() {
+    console.log('note render+++++++++++++++++')
     let {content, time, color, rotate } = this.props.note
     return (
       <div className="wrapper">
